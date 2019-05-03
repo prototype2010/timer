@@ -1,26 +1,74 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {connect} from 'react-redux';
+import {Route, Switch} from "react-router-dom";
+import Timer from './components/Timer';
+import TasksTable from './components/TasksTable';
+import TaskDetails from './components/TaskDetails';
+import NavTabs from './components/NavTabs';
+import {REDUX_ACTION_NAMES, ROUTER_PREFIXES} from './config';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const {TABLE, TASK, CHART} = ROUTER_PREFIXES;
+const {CHECK_SERIALIZED_STATE, DELETE_TASK} = REDUX_ACTION_NAMES;
+
+class App extends React.Component {
+
+    state = {
+        showDeleteTaskAlert: false
+    };
+
+    componentDidMount() {
+        this.props.recoverState();
+    }
+
+    render() {
+
+        const {tasksList, deleteTask, router, useHistoryApi} = this.props;
+
+        return (
+            <div>
+
+                {JSON.stringify(this.props)}
+                <hr/>
+                <br/>
+
+                <Timer/>
+
+                <NavTabs router={router} useHistoryApi={useHistoryApi}/>
+
+                <Switch>
+                    <Route
+                        path={TABLE}
+                        exact
+                        render={props => <TasksTable {...props} deleteTask={deleteTask} tasks={tasksList}/>}
+                    />
+                    <Route
+                        path={`/${TASK}/:id`}
+                        render={props => <TaskDetails {...props} tasks={tasksList}>IM HERE YOOHOO</TaskDetails>}
+                    />
+                    <Route
+                        path={`/${CHART}`}
+                        render={props => <div>IM CHART</div>}
+                    />
+                </Switch>
+            </div>
+
+        )
+    }
 }
 
-export default App;
+export default connect(
+    state => ({
+        tasksList: state.tasks.tasksList,
+        router: state.router
+    }),
+    dispatch => ({
+        recoverState: () => dispatch({
+            type: CHECK_SERIALIZED_STATE
+        }),
+        deleteTask: taskId => dispatch({
+            type: DELETE_TASK,
+            payload: taskId
+        }),
+        useHistoryApi : newUrl => dispatch(newUrl)
+    })
+)(App)
