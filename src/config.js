@@ -6,7 +6,9 @@ export const REDUX_ACTION_NAMES = {
     ADD_TASK: 'ADD_TASK',
     SET_TASK_NAME: 'SET_TASK_NAME',
     SET_TASK_END_TIME: 'SET_TASK_END_TIME',
-    DELETE_TASK: 'DELETE_TASK'
+    DELETE_TASK: 'DELETE_TASK',
+    DELETE_ALL_TASKS : 'DELETE_ALL_TASKS',
+    GENERATE_TASKS : 'GENERATE_TASKS'
 };
 
 export const LITERALS = {
@@ -32,5 +34,20 @@ export const ROUTER_PREFIXES = {
 };
 
 export const TIME_OUTPUT_FORMAT = {
-    TABLE_DATE_FORMAT : 'hh:mm:ss'
+    TABLE_DATE_FORMAT : 'HH:mm:ss'
+};
+
+export const TASK_GENERATOR_SETTINGS = {
+    TASKS_NUMBER : {
+        from : 10,
+        to: 15
+    },
+    TASKS_TIME : {
+        from : 10,
+        to : 90
+    },
+    PAUSE_TIME : {
+        from : 0,
+        to : 10
+    }
 };

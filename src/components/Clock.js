@@ -57,8 +57,6 @@ export default class Clock extends PureComponent {
         });
     };
 
-
-
     render() {
         return (
             <ClockRoundBlock>

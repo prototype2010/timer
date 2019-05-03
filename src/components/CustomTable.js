@@ -12,6 +12,7 @@ import {Link} from "react-router-dom";
 import {ROUTER_PREFIXES} from '../config';
 import {getFormattedDifference, formatDate} from '../utils/timeFormatter';
 import BasicButton from './BasicButton'
+
 const {TASK} = ROUTER_PREFIXES;
 
 const CustomTableCell = withStyles(theme => ({
@@ -88,7 +89,6 @@ function CustomizedTable(props) {
                                     </BasicButton>
                                 </CustomTableCell>
                             </TableRow>)
-
                     })}
                 </TableBody>
             </Table>

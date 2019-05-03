@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -54,7 +53,6 @@ function SimpleCard(props) {
                 <Typography variant="h5" component="h2">
                    Spent time : {getFormattedDifference(startTime, endTime)}
                 </Typography>
-
             </CardContent>
             <CardActions>
                 <Link to={TABLE}>
@@ -65,9 +63,5 @@ function SimpleCard(props) {
         </Card>
     );
 }
-
-SimpleCard.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(SimpleCard);

@@ -8,7 +8,7 @@ import NavTabs from './components/NavTabs';
 import {REDUX_ACTION_NAMES, ROUTER_PREFIXES} from './config';
 
 const {TABLE, TASK, CHART} = ROUTER_PREFIXES;
-const {CHECK_SERIALIZED_STATE, DELETE_TASK} = REDUX_ACTION_NAMES;
+const {CHECK_SERIALIZED_STATE, DELETE_TASK,GENERATE_TASKS} = REDUX_ACTION_NAMES;
 
 class App extends React.Component {
 
@@ -22,7 +22,7 @@ class App extends React.Component {
 
     render() {
 
-        const {tasksList, deleteTask} = this.props;
+        const {tasksList, deleteTask, generateTasks} = this.props;
 
         return (
             <div>
@@ -47,7 +47,7 @@ class App extends React.Component {
                     />
                     <Route
                         path={`/${CHART}`}
-                        render={props => <div>IM CHART</div>}
+                        render={props => <div><button onClick={generateTasks}>GENERATE</button></div>}
                     />
                 </Switch>
             </div>
@@ -68,6 +68,9 @@ export default connect(
         deleteTask: taskId => dispatch({
             type: DELETE_TASK,
             payload: taskId
+        }),
+        generateTasks : () => dispatch({
+            type : GENERATE_TASKS
         })
     })
 )(App)
