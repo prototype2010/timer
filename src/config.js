@@ -28,7 +28,7 @@ export const STYLES = {
 export const ROUTER_PREFIXES = {
     TABLE: '/',
     CHART: 'chart',
-    TASK: 'task'
+    TASK: 'tasks'
 };
 
 export const TIME_OUTPUT_FORMAT = {

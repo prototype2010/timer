@@ -22,7 +22,7 @@ class App extends React.Component {
 
     render() {
 
-        const {tasksList, deleteTask, router, useHistoryApi} = this.props;
+        const {tasksList, deleteTask} = this.props;
 
         return (
             <div>
@@ -33,7 +33,7 @@ class App extends React.Component {
 
                 <Timer/>
 
-                <NavTabs router={router} useHistoryApi={useHistoryApi}/>
+                <NavTabs/>
 
                 <Switch>
                     <Route
@@ -43,7 +43,7 @@ class App extends React.Component {
                     />
                     <Route
                         path={`/${TASK}/:id`}
-                        render={props => <TaskDetails {...props} tasks={tasksList}>IM HERE YOOHOO</TaskDetails>}
+                        render={props => <TaskDetails {...props} tasks={tasksList}/>}
                     />
                     <Route
                         path={`/${CHART}`}
@@ -68,7 +68,6 @@ export default connect(
         deleteTask: taskId => dispatch({
             type: DELETE_TASK,
             payload: taskId
-        }),
-        useHistoryApi : newUrl => dispatch(newUrl)
+        })
     })
 )(App)
