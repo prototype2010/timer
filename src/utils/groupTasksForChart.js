@@ -84,8 +84,3 @@ function makeArrayAndPush(object, index, task) {
         object[index] = [task];
     }
 }
-//
-// module.exports = {
-//     groupTasksForChart,
-//     formChartBars
-// };

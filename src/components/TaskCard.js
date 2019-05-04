@@ -58,7 +58,6 @@ function SimpleCard(props) {
                 <Link to={TABLE}>
                     <Button size="small">Back to task list</Button>
                 </Link>
-
             </CardActions>
         </Card>
     );

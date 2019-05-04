@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {STYLES} from '../config'
 import {
-
     Dialog,
     DialogActions,
     DialogContent,
@@ -51,5 +50,5 @@ export default function (props) {
                 </DialogButton>
             </DialogActions>
         </Dialog>
-    )
+    );
 }

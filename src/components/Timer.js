@@ -79,7 +79,6 @@ class Timer extends Component {
                     closeAlert={this.closeAlert}
                 />
 
-
                 <Clock
                     startTime={startTime}
                 />
@@ -91,7 +90,7 @@ class Timer extends Component {
                 </BasicButton>
 
             </TimerContainer>
-        )
+        );
     }
 }
 

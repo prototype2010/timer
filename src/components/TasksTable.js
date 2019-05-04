@@ -42,9 +42,6 @@ export default class TasksTable extends Component {
                     showAlert={this.showAlert}
                 />
             </>
-
-
-        )
+        );
     }
-
 }

@@ -10,7 +10,10 @@ const imageStyles = {
 export default function () {
     return (
         <div>
-            <img alt={'task cannot be found'} style={imageStyles} src={img404}/>
+            <img
+                alt={'task cannot be found'}
+                style={imageStyles}
+                src={img404}/>
         </div>
     );
 };

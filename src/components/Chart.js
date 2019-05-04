@@ -6,10 +6,9 @@ import {connect} from "react-redux";
 import styled from 'styled-components';
 import {REDUX_ACTION_NAMES, COLORS_PRESET} from '../config';
 import BasicButton from './BasicButton'
+const {formChartBars, groupTasksForChart} = require('../utils/groupTasksForChart');
 
-const {formChartBars, groupTasksForChart} = require('../utils/groupTasksForChart')
 const {GENERATE_TASKS} = REDUX_ACTION_NAMES;
-
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
