@@ -5,10 +5,11 @@ import Timer from './components/Timer';
 import TasksTable from './components/TasksTable';
 import TaskDetails from './components/TaskDetails';
 import NavTabs from './components/NavTabs';
+import Chart from './components/Chart';
 import {REDUX_ACTION_NAMES, ROUTER_PREFIXES} from './config';
 
 const {TABLE, TASK, CHART} = ROUTER_PREFIXES;
-const {CHECK_SERIALIZED_STATE, DELETE_TASK,GENERATE_TASKS} = REDUX_ACTION_NAMES;
+const {CHECK_SERIALIZED_STATE, DELETE_TASK, GENERATE_TASKS} = REDUX_ACTION_NAMES;
 
 class App extends React.Component {
 
@@ -22,14 +23,10 @@ class App extends React.Component {
 
     render() {
 
-        const {tasksList, deleteTask, generateTasks} = this.props;
+        const {tasksList, deleteTask} = this.props;
 
         return (
             <div>
-
-                {JSON.stringify(this.props)}
-                <hr/>
-                <br/>
 
                 <Timer/>
 
@@ -47,7 +44,7 @@ class App extends React.Component {
                     />
                     <Route
                         path={`/${CHART}`}
-                        render={props => <div><button onClick={generateTasks}>GENERATE</button></div>}
+                        render={() => <Chart tasks={tasksList}/>}
                     />
                 </Switch>
             </div>
@@ -69,8 +66,8 @@ export default connect(
             type: DELETE_TASK,
             payload: taskId
         }),
-        generateTasks : () => dispatch({
-            type : GENERATE_TASKS
+        generateTasks: () => dispatch({
+            type: GENERATE_TASKS
         })
     })
 )(App)

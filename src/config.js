@@ -1,3 +1,5 @@
+import randomcolor from 'randomcolor';
+
 export const REDUX_ACTION_NAMES = {
     CHECK_SERIALIZED_STATE: 'RECOVER_SERIALIZED_STATE',
     APPLY_SERIALIZED_STATE: 'APPLY_SERIALIZED_STATE',
@@ -51,3 +53,6 @@ export const TASK_GENERATOR_SETTINGS = {
         to : 10
     }
 };
+
+/* random colors for chart bars to keep color when new task added */
+export const COLORS_PRESET = new Array(100).fill(null).map(()=> randomcolor());

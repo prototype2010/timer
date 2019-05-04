@@ -4,15 +4,12 @@ import {getRandomFromRange} from '../../utils/numbers';
 import {REDUX_ACTION_NAMES, TASK_GENERATOR_SETTINGS} from '../../config';
 import randomstring from 'randomstring';
 
-import groupTasks from '../../utils/groupTasksForChart';
-
 const {TASKS_NUMBER, TASKS_TIME, PAUSE_TIME} = TASK_GENERATOR_SETTINGS;
 const {
     ADD_TASK,
     GENERATE_TASKS,
     DELETE_ALL_TASKS
 } = REDUX_ACTION_NAMES;
-
 
 export default function* () {
     yield takeEvery(GENERATE_TASKS, generateTasks)
@@ -43,7 +40,4 @@ function* generateTasks() {
 
         currentTime.add(pauseAfterTask, 'minutes')
     }
-
-    // TEST THING;
-    groupTasks();
 }
