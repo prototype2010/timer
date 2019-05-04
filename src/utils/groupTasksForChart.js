@@ -1,6 +1,6 @@
-import moment from 'moment';
+const moment = require('moment');
 
-export default function (tasksArray = []) {
+export function groupTasksForChart(tasksArray = []) {
 
     const groupedByHours = groupByHours(tasksArray);
 
@@ -84,3 +84,8 @@ function makeArrayAndPush(object, index, task) {
         object[index] = [task];
     }
 }
+//
+// module.exports = {
+//     groupTasksForChart,
+//     formChartBars
+// };

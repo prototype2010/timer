@@ -5,9 +5,9 @@ import {
 import {connect} from "react-redux";
 import styled from 'styled-components';
 import {REDUX_ACTION_NAMES, COLORS_PRESET} from '../config';
-import groupTasksForChart, {formChartBars} from '../utils/groupTasksForChart';
 import BasicButton from './BasicButton'
 
+const {formChartBars, groupTasksForChart} = require('../utils/groupTasksForChart')
 const {GENERATE_TASKS} = REDUX_ACTION_NAMES;
 
 const ButtonContainer = styled.div`
@@ -29,19 +29,18 @@ class Chart extends PureComponent {
     };
 
     render() {
+
         /* taskMaximumId used to color tabs with random colors*/
         const taskMaximumId = Math.max.apply(null, this.props.tasks.map(({id}) => id));
         const barsArray = this.formBarsArray(taskMaximumId);
         const testData = groupTasksForChart(this.props.tasks);
         const chartBars = formChartBars(testData);
 
-        console.log(chartBars);
-
         return (
             <>
                 <BarChart
                     align={'center'}
-                    width={document.documentElement.clientWidth || 1000}
+                    width={document.documentElement.clientWidth * 0.95 || 1000}
                     height={400}
                     data={chartBars}
                     margin={{
@@ -66,8 +65,6 @@ class Chart extends PureComponent {
                         Generate tasks
                     </BasicButton>
                 </ButtonContainer>
-
-
             </>
         );
     }
