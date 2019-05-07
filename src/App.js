@@ -23,7 +23,7 @@ class App extends React.Component {
 
     render() {
 
-        const {tasksList, deleteTask} = this.props;
+        const {tasks, deleteTask} = this.props;
 
         return (
             <div>
@@ -35,15 +35,13 @@ class App extends React.Component {
                     <Route
                         path={TABLE}
                         exact
-                        render={props => <TasksTable {...props} deleteTask={deleteTask} tasks={tasksList}/>}
+                        render={props => <TasksTable {...props} deleteTask={deleteTask} tasks={tasks}/>}
                     />
                     <Route
                         path={`/${TASK}/:id`}
-                        render={props => <TaskDetails {...props} tasks={tasksList}/>}
+                        render={props => <TaskDetails {...props} tasks={tasks}/>}
                     />
-                    <Route
-                        path={`/${CHART}`}
-                        render={() => <Chart tasks={tasksList}/>}
+                    <Route path={`/${CHART}`} component={Chart}/>
                     />
                 </Switch>
             </div>
@@ -54,7 +52,7 @@ class App extends React.Component {
 
 export default connect(
     state => ({
-        tasksList: state.tasks.tasksList,
+        tasks: state.tasksList.tasks,
         router: state.router
     }),
     dispatch => ({

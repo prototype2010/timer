@@ -10,8 +10,8 @@ export default function* () {
 }
 
 function* controlTasksFlow() {
-    const {tasks} = yield select();
-    const {startTime} = tasks;
+    const {currentTask} = yield select();
+    const {startTime} = currentTask;
 
     if (!startTime) {
         yield put({type: SET_TASK_START_TIME});

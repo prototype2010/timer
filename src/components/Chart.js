@@ -29,10 +29,11 @@ class Chart extends PureComponent {
 
     render() {
 
+        const {tasks, generateTasks} = this.props;
         /* taskMaximumId used to color tabs with random colors*/
-        const taskMaximumId = Math.max.apply(null, this.props.tasks.map(({id}) => id));
+        const taskMaximumId = Math.max.apply(null, tasks.map(({id}) => id));
         const barsArray = this.formBarsArray(taskMaximumId);
-        const testData = groupTasksForChart(this.props.tasks);
+        const testData = groupTasksForChart(tasks);
         const chartBars = formChartBars(testData);
 
         return (
@@ -59,7 +60,7 @@ class Chart extends PureComponent {
                 <ButtonContainer>
                     <BasicButton
                         style={{align: 'center'}}
-                        onClick={this.props.generateTasks}
+                        onClick={generateTasks}
                     >
                         Generate tasks
                     </BasicButton>
@@ -71,7 +72,7 @@ class Chart extends PureComponent {
 
 export default connect(
     state => ({
-        tasksList: state.tasks.tasksList,
+        tasks: state.tasksList.tasks,
     }),
     dispatch => ({
         generateTasks: () => dispatch({

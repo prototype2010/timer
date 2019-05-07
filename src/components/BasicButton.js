@@ -20,11 +20,20 @@ export default function (props = {}) {
             padding: '0 30px',
             margin: '20px 0',
             boxShadow: '0 3px 5px 2px lightgray',
-            fontSize: '20px'
+            fontSize: '20px',
+            size : 'medium'
         },
         label: {
             textTransform: 'capitalize',
         },
+        sizeSmall : {
+            height: 'auto',
+            padding: '1px 1px',
+            margin: '3px',
+            fontSize: '14px',
+            textDecoration: 'none',
+        }
+
     })(Button);
 
     return <BasicButton {...props}/>

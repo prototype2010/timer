@@ -22,6 +22,7 @@ const CustomTableCell = withStyles(theme => ({
     },
     body: {
         fontSize: 14,
+        textDecoration: 'none'
     },
 }))(TableCell);
 
@@ -74,13 +75,14 @@ function CustomizedTable(props) {
                                     align="right">{getFormattedDifference(startTime, endTime)}</CustomTableCell>
                                 <CustomTableCell align="center">
                                     <Link to={`${TASK}/${id}`}>
-                                        <BasicButton>
+                                        <BasicButton size={'small'}>
                                             INFO
                                         </BasicButton>
                                     </Link>
                                 </CustomTableCell>
                                 <CustomTableCell align="center">
                                     <BasicButton
+                                        size={'small'}
                                         onClick={() => {
                                             showAlert();
                                             transferTaskIdToDelete(id);

@@ -58,13 +58,14 @@ class Timer extends Component {
 
     render() {
 
-        const {startTime, taskName} = this.props;
+        const {props,state, handleTimerButtonClick} = this;
+        const {handleTaskNameChange, startTime, taskName} = props;
 
         return (
             <TimerContainer>
 
                 <TaskNameInput
-                    onChange={this.props.handleTaskNameChange}
+                    onChange={handleTaskNameChange}
                     placeholder={'Name of your task'}
                     value={taskName}
                     inputProps={{
@@ -75,7 +76,7 @@ class Timer extends Component {
                 />
 
                 <EmptyTaskAlertDialog
-                    open={this.state.showEmptyTaskAlert}
+                    open={state.showEmptyTaskAlert}
                     closeAlert={this.closeAlert}
                 />
 
@@ -84,7 +85,7 @@ class Timer extends Component {
                 />
 
                 <BasicButton
-                    onClick={this.handleTimerButtonClick}
+                    onClick={handleTimerButtonClick}
                 >
                     {startTime ? 'STOP' : 'START'}
                 </BasicButton>
@@ -95,7 +96,10 @@ class Timer extends Component {
 }
 
 export default connect(
-    state => ({...state.tasks}),
+    ({currentTask}) => ({
+        startTime : currentTask.startTime,
+        taskName : currentTask.taskName,
+    }),
     dispatch => ({
         controlTasksFlow: () => dispatch({
             type: CONTROL_TASKS_FLOW

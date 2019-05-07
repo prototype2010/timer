@@ -2,10 +2,12 @@
   "name": "brocoders-timer",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://prototype2010.github.io/timer/",
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/styles": "^3.0.0-alpha.10",
     "connected-react-router": "^6.4.0",
+    "gh-pages": "^2.0.1",
     "history": "latest",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
@@ -26,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

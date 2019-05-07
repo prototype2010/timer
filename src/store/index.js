@@ -10,7 +10,6 @@ import createSagaMiddleware from 'redux-saga';
 import {createBrowserHistory} from 'history';
 import {routerMiddleware} from 'connected-react-router'
 
-
 /* redux devtools */
 export const history = createBrowserHistory();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

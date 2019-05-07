@@ -9,7 +9,7 @@ export default function (state = {}, action) {
     switch (type) {
 
         case APPLY_SERIALIZED_STATE : {
-            return {...payload.applicationState};
+            return {...payload};
         }
 
         default : {

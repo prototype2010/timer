@@ -2,20 +2,17 @@ import moment from 'moment';
 import {REDUX_ACTION_NAMES} from '../../config';
 
 const {
-    APPLY_SERIALIZED_STATE,
     SET_TASK_START_TIME,
-    ADD_TASK,
-    DELETE_TASK,
     SET_TASK_NAME,
     SET_TASK_END_TIME,
-    DELETE_ALL_TASKS
+    ADD_TASK,
+    APPLY_SERIALIZED_STATE
 } = REDUX_ACTION_NAMES;
 
 const initialState = {
     startTime: null,
     endTime: null,
     taskName: '',
-    tasksList: [],
 };
 
 export default function (state = initialState, action) {
@@ -25,7 +22,11 @@ export default function (state = initialState, action) {
     switch (type) {
 
         case APPLY_SERIALIZED_STATE : {
-            return {...payload.tasks};
+            return {...payload.currentTask};
+        }
+
+        case ADD_TASK : {
+            return initialState;
         }
 
         case SET_TASK_NAME : {
@@ -40,36 +41,8 @@ export default function (state = initialState, action) {
             return {...state, endTime: payload || moment()}
         }
 
-        case ADD_TASK : {
-
-            const {tasksList} = state;
-
-            return {
-                ...state,
-                startTime: null,
-                endTime: null,
-                taskName: '',
-                tasksList: [...tasksList, payload]
-            }
-        }
-
-        case DELETE_TASK : {
-
-            return {
-                ...state,
-                tasksList: state.tasksList.filter(({id}) => id !== payload)
-            }
-        }
-
-        case DELETE_ALL_TASKS : {
-            return {
-                ...state,
-                tasksList: []
-            }
-        }
-
         default : {
-            return {...state};
+            return state;
         }
     }
 };

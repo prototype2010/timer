@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter,HashRouter} from "react-router-dom";
 import {ConnectedRouter} from 'connected-react-router'
 import {history} from './store/index';
 import store from './store'
@@ -11,9 +11,9 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <BrowserRouter>
+            <HashRouter>
                 <App/>
-            </BrowserRouter>
+            </HashRouter>
         </ConnectedRouter>
     </Provider>
     , document.getElementById('root')
