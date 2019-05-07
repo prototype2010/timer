@@ -1,11 +1,12 @@
 import React, {PureComponent} from 'react';
 import {
-    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import {connect} from "react-redux";
 import styled from 'styled-components';
 import {REDUX_ACTION_NAMES, COLORS_PRESET} from '../config';
 import BasicButton from './BasicButton'
+
 const {formChartBars, groupTasksForChart} = require('../utils/groupTasksForChart');
 
 const {GENERATE_TASKS} = REDUX_ACTION_NAMES;
@@ -33,30 +34,29 @@ class Chart extends PureComponent {
         /* taskMaximumId used to color tabs with random colors*/
         const taskMaximumId = Math.max.apply(null, tasks.map(({id}) => id));
         const barsArray = this.formBarsArray(taskMaximumId);
-        const testData = groupTasksForChart(tasks);
-        const chartBars = formChartBars(testData);
+        const gruopedTasks = groupTasksForChart(tasks);
+        const chartBars = formChartBars(gruopedTasks);
 
         return (
             <>
-                <BarChart
-                    align={'center'}
-                    width={document.documentElement.clientWidth * 0.95 || 1000}
-                    height={400}
-                    data={chartBars}
-                    margin={{
-                        top: 20, right: 30, left: 20, bottom: 5,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3"/>
-                    <XAxis dataKey="name"/>
-                    <YAxis/>
-                    <Tooltip/>
-                    <Legend/>
+                <ResponsiveContainer width={'100%'} height={400}>
+                    <BarChart
+                        align={'center'}
+                        data={chartBars}
+                        margin={{
+                            top: 20, right: 30, left: 20, bottom: 5,
+                        }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3"/>
+                        <XAxis dataKey="name"/>
+                        <YAxis type="number" domain={[60, 60]}/>
+                        <Tooltip/>
+                        <Legend/>
 
-                    {barsArray}
+                        {barsArray}
 
-                </BarChart>
-
+                    </BarChart>
+                </ResponsiveContainer>
                 <ButtonContainer>
                     <BasicButton
                         style={{align: 'center'}}
