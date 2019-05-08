@@ -1,18 +1,16 @@
-import React, {Component} from 'react';
-import Timer from "../Timer";
-import NavTabs from "../NavTabs";
+import React, { Component } from 'react';
+import Timer from '../Timer';
+import NavTabs from '../NavTabs';
 
 export default class TasksApplicationContainer extends Component {
+  render() {
+    const { match } = this.props;
 
-    render() {
-
-        const {match} = this.props;
-
-        return (
-            <>
-                <Timer/>
-                <NavTabs url={match}/>
-            </>
-        );
-    }
+    return (
+      <>
+        <Timer />
+        <NavTabs url={match} />
+      </>
+    );
+  }
 }

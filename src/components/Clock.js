@@ -1,55 +1,50 @@
-import React, {PureComponent} from 'react';
-import styled from "styled-components";
-import {getFormattedDifference} from '../utils/timeFormatter';
+import React, { PureComponent } from 'react';
+import styled from 'styled-components';
+import { getFormattedDifference } from '../utils/timeFormatter';
 
 const DEFAULT_DISPLAY_TIME = '00:00:00';
 
 export default class Clock extends PureComponent {
+  state = {
+    timeToDisplay: DEFAULT_DISPLAY_TIME,
+  };
+  launchTimer = () => {
+    this.timer = setInterval(this.updateStateTime, 1000);
+  };
+  destroyTimer = () => {
+    this.setState({ timeToDisplay: DEFAULT_DISPLAY_TIME }, () => {
+      clearInterval(this.timer);
+    });
+  };
+  updateStateTime = () => {
+    this.setState({
+      timeToDisplay: getFormattedDifference(this.props.startTime),
+    });
+  };
 
-    state = {
-        timeToDisplay: DEFAULT_DISPLAY_TIME
-    };
-    launchTimer = () => {
-        this.timer = setInterval(this.updateStateTime, 1000)
-    };
-    destroyTimer = () => {
-        this.setState({timeToDisplay: DEFAULT_DISPLAY_TIME}, () => {
-            clearInterval(this.timer);
-        })
-    };
-    updateStateTime = () => {
-        this.setState({
-            timeToDisplay: getFormattedDifference(this.props.startTime)
-        });
-    };
+  componentWillReceiveProps(nextProps, nextContext) {
+    const { startTime } = this.props;
 
-    componentWillReceiveProps(nextProps, nextContext) {
-
-        const {startTime} = this.props;
-
-        if (!startTime && nextProps.startTime) {
-            this.launchTimer();
-        } else if (startTime && !nextProps.startTime) {
-            this.destroyTimer();
-        }
+    if (!startTime && nextProps.startTime) {
+      this.launchTimer();
+    } else if (startTime && !nextProps.startTime) {
+      this.destroyTimer();
     }
+  }
 
-    componentWillUnmount() {
-        this.destroyTimer();
-    }
+  componentWillUnmount() {
+    this.destroyTimer();
+  }
 
-    render() {
+  render() {
+    const { timeToDisplay } = this.state;
 
-        const {timeToDisplay} = this.state;
-
-        return (
-            <ClockRoundBlock>
-                <TimeOutputWrapper>
-                    {timeToDisplay}
-                </TimeOutputWrapper>
-            </ClockRoundBlock>
-        );
-    }
+    return (
+      <ClockRoundBlock>
+        <TimeOutputWrapper>{timeToDisplay}</TimeOutputWrapper>
+      </ClockRoundBlock>
+    );
+  }
 }
 
 const ClockRoundBlock = styled.div`

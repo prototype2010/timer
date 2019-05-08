@@ -1,19 +1,17 @@
-import {REDUX_ACTION_NAMES} from '../../config';
+import { REDUX_ACTION_NAMES } from '../../config';
 
-const {APPLY_SERIALIZED_STATE} = REDUX_ACTION_NAMES;
+const { APPLY_SERIALIZED_STATE } = REDUX_ACTION_NAMES;
 
-export default function (state = {}, action) {
+export default function(state = {}, action) {
+  const { type, payload } = action;
 
-    const {type, payload} = action;
-
-    switch (type) {
-
-        case APPLY_SERIALIZED_STATE : {
-            return {...payload};
-        }
-
-        default : {
-            return {...state};
-        }
+  switch (type) {
+    case APPLY_SERIALIZED_STATE: {
+      return { ...payload };
     }
-};
+
+    default: {
+      return { ...state };
+    }
+  }
+}

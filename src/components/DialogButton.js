@@ -1,19 +1,15 @@
 import React from 'react';
-import {
-    Button,
-    withStyles,
-} from '@material-ui/core';
+import { Button, withStyles } from '@material-ui/core';
 
-export default function (props) {
+export default function(props) {
+  const { data } = props;
 
-    const {data} = props;
+  const DialogButton = withStyles({
+    root: {
+      color: data.color,
+      fontWeight: 'bold',
+    },
+  })(Button);
 
-    const DialogButton = withStyles({
-        root: {
-            color: data.color,
-            fontWeight: 'bold'
-        },
-    })(Button);
-
-    return <DialogButton {...props}/>
+  return <DialogButton {...props} />;
 }

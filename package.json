@@ -30,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -b master -d build",
+    "prettier" : "prettier --write --jsx-single-quote --trailing-comma all --use-tabs false --single-quote src/**/*.{js,jsx}"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -53,7 +54,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "prettier"
     }
   }
 }
