@@ -35,11 +35,9 @@ class App extends React.Component {
                         path={[`/${CHART}`, TABLE]}
                         render={props => <TasksApplicationContainer {...props}/>}
                     />
-
                 </Switch>
             </div>
-
-        )
+        );
     }
 }
 

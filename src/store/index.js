@@ -3,6 +3,7 @@ import recoverSerializedState from './saga/recoverSerializedState';
 import serializeState from './saga/serializeState';
 import controlTaskFlow from './saga/controlTaskFlow';
 import taskGenerator from './saga/taskGenerator';
+import handleTaskNameChange from './saga/handleTaskNameChange';
 
 import rootReducer from './reducer'
 import reduxLogger from './middleware/logger';
@@ -18,5 +19,5 @@ const sagaMiddleware = createSagaMiddleware();
 
 export default createStore(rootReducer(history), composeEnhancers(applyMiddleware(reduxLogger, sagaMiddleware, routerMiddleware(history))));
 
-[recoverSerializedState, serializeState, controlTaskFlow, taskGenerator]
+[recoverSerializedState, serializeState, controlTaskFlow, taskGenerator, handleTaskNameChange]
     .forEach(saga => sagaMiddleware.run(saga));

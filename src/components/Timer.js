@@ -10,7 +10,7 @@ import BasicButton from './BasicButton'
 import {REDUX_ACTION_NAMES, STYLES} from '../config'
 import EmptyTaskAlertDialog from './EmptyTaskAlertDialog';
 
-const {CONTROL_TASKS_FLOW, SET_TASK_NAME} = REDUX_ACTION_NAMES;
+const {CONTROL_TASKS_FLOW, TASK_NAME_CHANGE} = REDUX_ACTION_NAMES;
 const {TEXT_COLOR} = STYLES;
 
 const TimerContainer = styled.div`
@@ -34,17 +34,15 @@ const TaskNameInput = withStyles({
 class Timer extends Component {
 
     state = {
-        showEmptyTaskAlert: false
+        showEmptyTaskAlert: false,
+        localTaskName: ''
     };
-
     openAlert = () => {
         this.setState({showEmptyTaskAlert: true})
     };
-
     closeAlert = () => {
         this.setState({showEmptyTaskAlert: false})
     };
-
     handleTimerButtonClick = () => {
 
         const {startTime, taskName, controlTasksFlow} = this.props;
@@ -55,19 +53,35 @@ class Timer extends Component {
             controlTasksFlow();
         }
     };
+    handleInputChange = (e) => {
+
+        this.setState({localTaskName: e.target.value}, () => {
+            this.props.handleTaskNameChange(this.state.localTaskName);
+        });
+    };
+
+    componentDidMount() {
+        this.setState({localTaskName: this.props.taskName})
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const {taskName} = nextProps;
+
+        this.setState({localTaskName: taskName})
+    }
 
     render() {
 
-        const {props,state, handleTimerButtonClick} = this;
-        const {handleTaskNameChange, startTime, taskName} = props;
+        const {props, state, handleTimerButtonClick} = this;
+        const {startTime} = props;
 
         return (
             <TimerContainer>
 
                 <TaskNameInput
-                    onChange={handleTaskNameChange}
+                    onChange={this.handleInputChange}
                     placeholder={'Name of your task'}
-                    value={taskName}
+                    value={this.state.localTaskName}
                     inputProps={{
                         style: {
                             textAlign: "center",
@@ -97,16 +111,16 @@ class Timer extends Component {
 
 export default connect(
     ({currentTask}) => ({
-        startTime : currentTask.startTime,
-        taskName : currentTask.taskName,
+        startTime: currentTask.startTime,
+        taskName: currentTask.taskName,
     }),
     dispatch => ({
         controlTasksFlow: () => dispatch({
             type: CONTROL_TASKS_FLOW
         }),
-        handleTaskNameChange: event => dispatch({
-            type: SET_TASK_NAME,
-            payload: event.target.value
+        handleTaskNameChange: value => dispatch({
+            type: TASK_NAME_CHANGE,
+            payload: value
         })
     })
 )(Timer);
