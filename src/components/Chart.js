@@ -67,11 +67,6 @@ class Chart extends PureComponent {
     }
 }
 
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
-
 export default connect(
     state => ({
         tasks: state.tasksList.tasks,
@@ -82,3 +77,9 @@ export default connect(
         })
     })
 )(Chart)
+
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
