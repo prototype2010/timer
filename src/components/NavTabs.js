@@ -6,6 +6,8 @@ import NoSsr from '@material-ui/core/NoSsr';
 import Tab from '@material-ui/core/Tab';
 import {Link, Route} from "react-router-dom";
 import {STYLES, ROUTER_PREFIXES} from "../config";
+import Chart from  '../components/Chart';
+import TasksTable from  '../components/TasksTable';
 
 const {CHART, TABLE} = ROUTER_PREFIXES;
 const {TABS_BACKGROUND} = STYLES;
@@ -28,7 +30,7 @@ const useStyles = makeStyles(() => ({
 
 export default function NavTabs() {
     const classes = useStyles();
-    const [value, setValue] = React.useState(window.location.pathname.endsWith(CHART) ? 1 : 0);
+    const [value, setValue] = React.useState(window.location.hash.endsWith(CHART) ? 1 : 0);
 
     function handleChange(event, newValue) {
         setValue(newValue);
@@ -48,6 +50,8 @@ export default function NavTabs() {
                             <LinkTab label={'TASKS CHART'} to={`/${CHART}`} replace={true}/>
                         </Tabs>
                     </AppBar>
+                    {value === 0 && <TasksTable/>}
+                    {value === 1 && <Chart/>}
                 </div>
             </NoSsr>
         </Route>

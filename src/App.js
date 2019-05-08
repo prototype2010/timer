@@ -1,12 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Route, Switch} from "react-router-dom";
-import Timer from './components/Timer';
-import TasksTable from './components/TasksTable';
-import TaskDetails from './components/TaskDetails';
-import NavTabs from './components/NavTabs';
-import Chart from './components/Chart';
+import TaskDetailsContainer from './components/containers/TaskDetailsContainer';
 import {REDUX_ACTION_NAMES, ROUTER_PREFIXES} from './config';
+import TasksApplicationContainer from "./components/containers/TasksApplicationContainer";
+import './App.css';
 
 const {TABLE, TASK, CHART} = ROUTER_PREFIXES;
 const {CHECK_SERIALIZED_STATE, DELETE_TASK, GENERATE_TASKS} = REDUX_ACTION_NAMES;
@@ -23,26 +21,21 @@ class App extends React.Component {
 
     render() {
 
-        const {tasks, deleteTask} = this.props;
+        const {tasks} = this.props;
 
         return (
             <div>
-                <Timer/>
-
-                <NavTabs/>
-
                 <Switch>
                     <Route
-                        path={TABLE}
                         exact
-                        render={props => <TasksTable {...props} deleteTask={deleteTask} tasks={tasks}/>}
+                        path={`/${TASK}/:id`}
+                        render={props => <TaskDetailsContainer id={+props.match.params.id} tasks={tasks}/>}
                     />
                     <Route
-                        path={`/${TASK}/:id`}
-                        render={props => <TaskDetails {...props} tasks={tasks}/>}
+                        path={[`/${CHART}`, TABLE]}
+                        render={props => <TasksApplicationContainer {...props}/>}
                     />
-                    <Route path={`/${CHART}`} component={Chart}/>
-                    />
+
                 </Switch>
             </div>
 

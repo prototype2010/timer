@@ -1,22 +1,29 @@
 import React, {Component} from 'react';
 import TaskCard from './TaskCard'
 import PageNotFound from './PageNotFound'
+import styled from 'styled-components';
+
+const TaskContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default class TaskDetails extends Component {
 
     render() {
 
-        const {match, tasks} = this.props;
-        const {id: urlId} = match.params;
-        const requestedTask = tasks.find(({id}) => id === +urlId);
+        const {id : paramId, tasks} = this.props;
+        const requestedTask = tasks.find(({id}) => id === paramId);
 
         return (
-            <div>
+            <TaskContainer>
                 {requestedTask ?
                     <TaskCard requestedTask={requestedTask}/>
                     : <PageNotFound/>
                 }
-            </div>
+            </TaskContainer>
         );
     }
 }

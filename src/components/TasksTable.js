@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import CustomTable from './CustomTable'
 import DeleteTaskAlertDialog from './DeleteTaskAlertDialog'
+import {connect} from "react-redux";
 
-export default class TasksTable extends Component {
+import {REDUX_ACTION_NAMES} from "../config";
+
+const {DELETE_TASK} = REDUX_ACTION_NAMES;
+
+class TasksTable extends Component {
 
     state = {
         showDeleteTaskAlert: false,
-        taskToDeleteId : null
+        taskToDeleteId: null
     };
 
     showAlert = () => {
@@ -14,7 +19,7 @@ export default class TasksTable extends Component {
     };
 
     hideAlert = () => {
-        this.setState({showDeleteTaskAlert: false   })
+        this.setState({showDeleteTaskAlert: false})
     };
 
     transferTaskIdToDelete = id => {
@@ -45,3 +50,15 @@ export default class TasksTable extends Component {
         );
     }
 }
+
+export default connect(
+    state => ({
+        tasks: state.tasksList.tasks,
+    }),
+    dispatch => ({
+        deleteTask: taskId => dispatch({
+            type: DELETE_TASK,
+            payload: taskId
+        }),
+    })
+)(TasksTable)
