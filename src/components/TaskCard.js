@@ -11,24 +11,6 @@ import {getFormattedDifference, formatDate} from '../utils/timeFormatter';
 
 const {TABLE} = ROUTER_PREFIXES;
 
-const styles = {
-    card: {
-        minWidth: 275,
-        maxWidth: 600,
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 4px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-};
-
 function SimpleCard(props) {
     const {classes, requestedTask} = props;
     const {card, title} = classes;
@@ -61,5 +43,23 @@ function SimpleCard(props) {
         </Card>
     );
 }
+
+const styles = {
+    card: {
+        minWidth: 275,
+        maxWidth: 600,
+    },
+    bullet: {
+        display: 'inline-block',
+        margin: '0 4px',
+        transform: 'scale(0.8)',
+    },
+    title: {
+        fontSize: 14,
+    },
+    pos: {
+        marginBottom: 12,
+    },
+};
 
 export default withStyles(styles)(SimpleCard);

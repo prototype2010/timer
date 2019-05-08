@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import CustomTable from './CustomTable'
 import DeleteTaskAlertDialog from './DeleteTaskAlertDialog'
 import {connect} from "react-redux";
-
 import {REDUX_ACTION_NAMES} from "../config";
 
 const {DELETE_TASK} = REDUX_ACTION_NAMES;

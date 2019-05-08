@@ -15,37 +15,10 @@ import BasicButton from './BasicButton'
 
 const {TASK} = ROUTER_PREFIXES;
 
-const CustomTableCell = withStyles(theme => ({
-    head: {
-        backgroundColor: theme.palette.common.white,
-        color: theme.palette.common.gray,
-    },
-    body: {
-        fontSize: 14,
-        textDecoration: 'none'
-    },
-}))(TableCell);
-
-const styles = theme => ({
-    root: {
-        width: '100%',
-        marginTop: theme.spacing.unit * 3,
-        overflowX: 'auto',
-    },
-    table: {
-        minWidth: 700,
-    },
-    row: {
-        '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.background.default,
-        },
-    },
-});
-
 function CustomizedTable(props) {
 
     const {classes, tasks, showAlert, transferTaskIdToDelete} = props;
-    const {root,table} = classes;
+    const {root, table} = classes;
 
     return (
         <Paper className={root}>
@@ -98,5 +71,32 @@ function CustomizedTable(props) {
         </Paper>
     );
 }
+
+const CustomTableCell = withStyles(theme => ({
+    head: {
+        backgroundColor: theme.palette.common.white,
+        color: theme.palette.common.gray,
+    },
+    body: {
+        fontSize: 14,
+        textDecoration: 'none'
+    },
+}))(TableCell);
+
+const styles = theme => ({
+    root: {
+        width: '100%',
+        marginTop: theme.spacing.unit * 3,
+        overflowX: 'auto',
+    },
+    table: {
+        minWidth: 700,
+    },
+    row: {
+        '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.background.default,
+        },
+    },
+});
 
 export default withStyles(styles)(CustomizedTable);

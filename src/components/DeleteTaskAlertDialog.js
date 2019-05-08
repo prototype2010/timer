@@ -12,12 +12,6 @@ import DialogButton from "./DialogButton";
 
 const {LIGHT_BLUE, WARN_COLOR} = STYLES;
 
-const DialogTitleContent = styled.p`
-    color: ${WARN_COLOR};
-    font-weight:  bold;
-    font-size: 24px;
-`;
-
 export default function (props) {
 
     const {hideAlert, confirmDeletion, open} = props;
@@ -52,3 +46,9 @@ export default function (props) {
         </Dialog>
     );
 }
+
+const DialogTitleContent = styled.p`
+    color: ${WARN_COLOR};
+    font-weight:  bold;
+    font-size: 24px;
+`;

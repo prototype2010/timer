@@ -6,27 +6,11 @@ import NoSsr from '@material-ui/core/NoSsr';
 import Tab from '@material-ui/core/Tab';
 import {Link, Route} from "react-router-dom";
 import {STYLES, ROUTER_PREFIXES} from "../config";
-import Chart from  '../components/Chart';
-import TasksTable from  '../components/TasksTable';
+import Chart from '../components/Chart';
+import TasksTable from '../components/TasksTable';
 
 const {CHART, TABLE} = ROUTER_PREFIXES;
 const {TABS_BACKGROUND} = STYLES;
-
-function LinkTab(props) {
-
-    return (
-        <Tab
-            component={Link}
-            {...props}
-        />
-    );
-}
-
-const useStyles = makeStyles(() => ({
-    root: {
-        flexGrow: 1,
-    },
-}));
 
 export default function NavTabs() {
 
@@ -58,3 +42,19 @@ export default function NavTabs() {
         </Route>
     );
 }
+
+function LinkTab(props) {
+
+    return (
+        <Tab
+            component={Link}
+            {...props}
+        />
+    );
+}
+
+const useStyles = makeStyles(() => ({
+    root: {
+        flexGrow: 1,
+    },
+}));

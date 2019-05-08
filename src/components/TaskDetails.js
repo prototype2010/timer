@@ -3,13 +3,6 @@ import TaskCard from './TaskCard'
 import PageNotFound from './PageNotFound'
 import styled from 'styled-components';
 
-const TaskContainer = styled.div`
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export default class TaskDetails extends Component {
 
     render() {
@@ -27,3 +20,10 @@ export default class TaskDetails extends Component {
         );
     }
 }
+
+const TaskContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

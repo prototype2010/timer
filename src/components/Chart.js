@@ -8,12 +8,8 @@ import {REDUX_ACTION_NAMES, COLORS_PRESET} from '../config';
 import BasicButton from './BasicButton'
 
 const {formChartBars, groupTasksForChart} = require('../utils/groupTasksForChart');
-
 const {GENERATE_TASKS} = REDUX_ACTION_NAMES;
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
+
 
 class Chart extends PureComponent {
 
@@ -70,6 +66,11 @@ class Chart extends PureComponent {
         );
     }
 }
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
 
 export default connect(
     state => ({

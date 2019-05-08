@@ -13,24 +13,6 @@ import EmptyTaskAlertDialog from './EmptyTaskAlertDialog';
 const {CONTROL_TASKS_FLOW, TASK_NAME_CHANGE} = REDUX_ACTION_NAMES;
 const {TEXT_COLOR} = STYLES;
 
-const TimerContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between;
-    align-items: center;
-    color: ${TEXT_COLOR};
-    padding-top: 30px;
-`;
-
-const TaskNameInput = withStyles({
-    root: {
-        width: '450px',
-        fontSize: '20px',
-        color: `${TEXT_COLOR}`
-    }
-})(Input);
-
 class Timer extends Component {
 
     state = {
@@ -125,3 +107,21 @@ export default connect(
         })
     })
 )(Timer);
+
+const TimerContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    align-items: center;
+    color: ${TEXT_COLOR};
+    padding-top: 30px;
+`;
+
+const TaskNameInput = withStyles({
+    root: {
+        width: '450px',
+        fontSize: '20px',
+        color: `${TEXT_COLOR}`
+    }
+})(Input);

@@ -5,8 +5,6 @@ import {
 } from '@material-ui/core';
 import {STYLES} from '../config'
 
-const {TEXT_COLOR} = STYLES;
-
 export default function (props = {}) {
 
     const {data = {}} = props;
@@ -15,18 +13,18 @@ export default function (props = {}) {
         root: {
             borderRadius: 3,
             border: 0,
-            color: data.color || TEXT_COLOR,
+            color: data.color || STYLES.TEXT_COLOR,
             height: 48,
             padding: '0 30px',
             margin: '20px 0',
             boxShadow: '0 3px 5px 2px lightgray',
             fontSize: '20px',
-            size : 'medium'
+            size: 'medium'
         },
         label: {
             textTransform: 'capitalize',
         },
-        sizeSmall : {
+        sizeSmall: {
             height: 'auto',
             padding: '1px 1px',
             margin: '3px',
