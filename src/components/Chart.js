@@ -7,7 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
+  ResponsiveContainer
 } from 'recharts';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -23,7 +23,7 @@ class Chart extends PureComponent {
 
     for (let i = 0; i <= maximumTaskId; i++) {
       barsArray.push(
-        <Bar key={i} dataKey={i} stackId='a' fill={COLORS_PRESET[i]} />,
+        <Bar key={i} dataKey={i} stackId='a' fill={COLORS_PRESET[i]} />
       );
     }
 
@@ -49,7 +49,7 @@ class Chart extends PureComponent {
               top: 20,
               right: 30,
               left: 20,
-              bottom: 5,
+              bottom: 5
             }}
           >
             <CartesianGrid strokeDasharray='3 3' />
@@ -73,9 +73,9 @@ class Chart extends PureComponent {
 
 export default connect(
   state => ({
-    tasks: state.tasksList.tasks,
+    tasks: state.tasksList.tasks
   }),
-  dispatch => bindActionCreators({ generateTasks }, dispatch),
+  dispatch => bindActionCreators({ generateTasks }, dispatch)
 )(Chart);
 
 const ButtonContainer = styled.div`

@@ -16,17 +16,17 @@ export function formChartBars(tasksGroupedArray) {
     ...tasksArray.reduce(
       (cumulative, { id, timeSpent }) => ({
         ...cumulative,
-        [id]: timeSpent,
+        [id]: timeSpent
       }),
-      {},
-    ),
+      {}
+    )
   }));
 }
 
 function coerceTasksToMinutes(tasksObject) {
   return Object.entries(tasksObject).map(([index, tasksArray]) => [
     index,
-    tasksArray.map(task => convertTaskToMinutesRange(task, index)),
+    tasksArray.map(task => convertTaskToMinutesRange(task, index))
   ]);
 }
 
@@ -51,7 +51,7 @@ function coerceTaskTimeToCurrentHour(time, currentHour) {
 
 function convertTaskToMinutesRange(
   { id, startTime, endTime, taskName },
-  currentHour,
+  currentHour
 ) {
   const hourStartTime = coerceTaskTimeToCurrentHour(startTime, +currentHour);
   const hourEndTime = coerceTaskTimeToCurrentHour(endTime, +currentHour);
@@ -62,7 +62,7 @@ function convertTaskToMinutesRange(
     startTime,
     endTime,
     taskName,
-    timeSpent,
+    timeSpent
   };
 }
 

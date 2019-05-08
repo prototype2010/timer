@@ -12,5 +12,5 @@ export default function() {
 const imageStyles = {
   width: '800px',
   marginLeft: '50%',
-  transform: 'translateX(-50%)',
+  transform: 'translateX(-50%)'
 };

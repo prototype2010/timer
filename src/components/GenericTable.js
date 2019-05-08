@@ -6,7 +6,7 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  Paper,
+  Paper
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { ROUTER_PREFIXES } from '../config';
@@ -80,28 +80,28 @@ function CustomizedTable(props) {
 const CustomTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.white,
-    color: theme.palette.common.gray,
+    color: theme.palette.common.gray
   },
   body: {
     fontSize: 14,
-    textDecoration: 'none',
-  },
+    textDecoration: 'none'
+  }
 }))(TableCell);
 
 const styles = theme => ({
   root: {
     width: '100%',
     marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
+    overflowX: 'auto'
   },
   table: {
-    minWidth: 700,
+    minWidth: 700
   },
   row: {
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.background.default,
-    },
-  },
+      backgroundColor: theme.palette.background.default
+    }
+  }
 });
 
 export default withStyles(styles)(CustomizedTable);

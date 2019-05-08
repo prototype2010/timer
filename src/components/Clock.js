@@ -6,7 +6,7 @@ const DEFAULT_DISPLAY_TIME = '00:00:00';
 
 export default class Clock extends PureComponent {
   state = {
-    timeToDisplay: DEFAULT_DISPLAY_TIME,
+    timeToDisplay: DEFAULT_DISPLAY_TIME
   };
   launchTimer = () => {
     this.timer = setInterval(this.updateStateTime, 1000);
@@ -18,7 +18,7 @@ export default class Clock extends PureComponent {
   };
   updateStateTime = () => {
     this.setState({
-      timeToDisplay: getFormattedDifference(this.props.startTime),
+      timeToDisplay: getFormattedDifference(this.props.startTime)
     });
   };
 

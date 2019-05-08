@@ -10,12 +10,12 @@ const { TABLE, TASK, CHART } = ROUTER_PREFIXES;
 const {
   CHECK_SERIALIZED_STATE,
   DELETE_TASK,
-  GENERATE_TASKS,
+  GENERATE_TASKS
 } = REDUX_ACTION_NAMES;
 
 class App extends React.Component {
   state = {
-    showDeleteTaskAlert: false,
+    showDeleteTaskAlert: false
   };
 
   componentDidMount() {
@@ -48,21 +48,21 @@ class App extends React.Component {
 export default connect(
   state => ({
     tasks: state.tasksList.tasks,
-    router: state.router,
+    router: state.router
   }),
   dispatch => ({
     recoverState: () =>
       dispatch({
-        type: CHECK_SERIALIZED_STATE,
+        type: CHECK_SERIALIZED_STATE
       }),
     deleteTask: taskId =>
       dispatch({
         type: DELETE_TASK,
-        payload: taskId,
+        payload: taskId
       }),
     generateTasks: () =>
       dispatch({
-        type: GENERATE_TASKS,
-      }),
-  }),
+        type: GENERATE_TASKS
+      })
+  })
 )(App);

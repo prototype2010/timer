@@ -5,7 +5,7 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
+  DialogTitle
 } from '@material-ui/core';
 import { STYLES } from '../config';
 import DialogButton from './DialogButton';

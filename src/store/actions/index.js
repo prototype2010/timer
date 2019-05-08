@@ -10,7 +10,7 @@ const {
   SET_TASK_END_TIME,
   DELETE_TASK,
   DELETE_ALL_TASKS,
-  GENERATE_TASKS,
+  GENERATE_TASKS
 } = REDUX_ACTION_NAMES;
 
 export const applySerializedState = serializedState =>
@@ -30,6 +30,6 @@ export const generateTasks = () => formReduxAction(GENERATE_TASKS);
 function formReduxAction(type, payload) {
   return {
     type,
-    payload,
+    payload
   };
 }

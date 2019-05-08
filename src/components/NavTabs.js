@@ -15,7 +15,7 @@ const { TABS_BACKGROUND } = STYLES;
 export default function NavTabs() {
   const { root } = useStyles();
   const [value, setValue] = React.useState(
-    window.location.hash.endsWith(CHART) ? 1 : 0,
+    window.location.hash.endsWith(CHART) ? 1 : 0
   );
 
   function handleChange(event, newValue) {
@@ -51,6 +51,6 @@ function LinkTab(props) {
 
 const useStyles = makeStyles(() => ({
   root: {
-    flexGrow: 1,
-  },
+    flexGrow: 1
+  }
 }));

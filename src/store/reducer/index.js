@@ -10,6 +10,6 @@ export default function(history) {
     router: connectRouter(history),
     applicationState,
     currentTask,
-    tasksList,
+    tasksList
   });
 }

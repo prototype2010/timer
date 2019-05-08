@@ -11,5 +11,5 @@ class TaskDetailsContainer extends Component {
 }
 
 export default connect(state => ({
-  tasks: state.tasksList.tasks,
+  tasks: state.tasksList.tasks
 }))(TaskDetailsContainer);

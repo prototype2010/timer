@@ -14,7 +14,7 @@ export default function*() {
       id: generateNextId(tasks),
       startTime,
       endTime,
-      taskName,
-    }),
+      taskName
+    })
   );
 }

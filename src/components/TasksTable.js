@@ -8,7 +8,7 @@ import { deleteTask } from '../store/actions';
 class TasksTable extends Component {
   state = {
     showDeleteTaskAlert: false,
-    taskToDeleteId: null,
+    taskToDeleteId: null
   };
 
   showAlert = () => {
@@ -34,7 +34,7 @@ class TasksTable extends Component {
       hideAlert,
       confirmDeletion,
       transferTaskIdToDelete,
-      showAlert,
+      showAlert
     } = this;
     const { showDeleteTaskAlert } = state;
     const { deleteTask, tasks } = props;
@@ -60,7 +60,7 @@ class TasksTable extends Component {
 
 export default connect(
   state => ({
-    tasks: state.tasksList.tasks,
+    tasks: state.tasksList.tasks
   }),
-  dispatch => bindActionCreators({ deleteTask }, dispatch),
+  dispatch => bindActionCreators({ deleteTask }, dispatch)
 )(TasksTable);

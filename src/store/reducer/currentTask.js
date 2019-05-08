@@ -6,13 +6,13 @@ const {
   SET_TASK_NAME,
   SET_TASK_END_TIME,
   ADD_TASK,
-  APPLY_SERIALIZED_STATE,
+  APPLY_SERIALIZED_STATE
 } = REDUX_ACTION_NAMES;
 
 const initialState = {
   startTime: null,
   endTime: null,
-  taskName: '',
+  taskName: ''
 };
 
 export default function(state = initialState, action) {

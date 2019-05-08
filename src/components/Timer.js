@@ -15,7 +15,7 @@ const { TEXT_COLOR } = STYLES;
 class Timer extends Component {
   state = {
     showEmptyTaskAlert: false,
-    localTaskName: '',
+    localTaskName: ''
   };
   openAlert = () => {
     this.setState({ showEmptyTaskAlert: true });
@@ -54,7 +54,7 @@ class Timer extends Component {
       state,
       handleTimerButtonClick,
       handleInputChange,
-      closeAlert,
+      closeAlert
     } = this;
     const { startTime } = props;
     const { localTaskName, showEmptyTaskAlert } = state;
@@ -67,8 +67,8 @@ class Timer extends Component {
           value={localTaskName}
           inputProps={{
             style: {
-              textAlign: 'center',
-            },
+              textAlign: 'center'
+            }
           }}
         />
 
@@ -90,10 +90,10 @@ class Timer extends Component {
 export default connect(
   ({ currentTask }) => ({
     startTime: currentTask.startTime,
-    taskName: currentTask.taskName,
+    taskName: currentTask.taskName
   }),
   dispatch =>
-    bindActionCreators({ controlTasksFlow, handleTaskNameChange }, dispatch),
+    bindActionCreators({ controlTasksFlow, handleTaskNameChange }, dispatch)
 )(Timer);
 
 const TimerContainer = styled.div`
@@ -110,6 +110,6 @@ const TaskNameInput = withStyles({
   root: {
     width: '450px',
     fontSize: '20px',
-    color: `${TEXT_COLOR}`,
-  },
+    color: `${TEXT_COLOR}`
+  }
 })(Input);

@@ -17,7 +17,7 @@ function* generateTasks() {
 
   const tasksToGenerate = getRandomFromRange(
     TASKS_NUMBER.from,
-    TASKS_NUMBER.to,
+    TASKS_NUMBER.to
   );
   let currentTime = moment().startOf('day');
   let currentTaskId = 1;
@@ -31,8 +31,8 @@ function* generateTasks() {
         id: currentTaskId++,
         startTime: currentTime.toString(),
         endTime: currentTime.add(taskTime, 'minutes').toString(),
-        taskName: randomstring.generate(10),
-      }),
+        taskName: randomstring.generate(10)
+      })
     );
 
     currentTime.add(pauseAfterTask, 'minutes');

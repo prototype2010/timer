@@ -31,7 +31,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
-    "prettier": "prettier --write --jsx-single-quote --trailing-comma all --use-tabs false --single-quote src/**/*.{js,jsx}"
+    "prettier": "prettier --write --jsx-single-quote --trailing-comma none --use-tabs false --single-quote src/**/*.{js,jsx}"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,7 +54,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "prettier --write --jsx-single-quote --trailing-comma all --use-tabs false --single-quote",
+      "prettier --write --jsx-single-quote --trailing-comma none --use-tabs false --single-quote src/**/*.{js,jsx}",
       "git add"
     ]
   },

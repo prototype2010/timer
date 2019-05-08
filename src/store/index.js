@@ -20,8 +20,8 @@ const sagaMiddleware = createSagaMiddleware();
 export default createStore(
   rootReducer(history),
   composeEnhancers(
-    applyMiddleware(reduxLogger, sagaMiddleware, routerMiddleware(history)),
-  ),
+    applyMiddleware(reduxLogger, sagaMiddleware, routerMiddleware(history))
+  )
 );
 
 [
@@ -29,5 +29,5 @@ export default createStore(
   serializeState,
   controlTaskFlow,
   taskGenerator,
-  handleTaskNameChange,
+  handleTaskNameChange
 ].forEach(saga => sagaMiddleware.run(saga));

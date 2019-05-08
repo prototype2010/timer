@@ -5,7 +5,7 @@ const {
   ADD_TASK,
   SET_TASK_START_TIME,
   DELETE_TASK,
-  SET_TASK_NAME,
+  SET_TASK_NAME
 } = REDUX_ACTION_NAMES;
 
 function* serializeState() {
@@ -18,6 +18,6 @@ function* serializeState() {
 export default function*() {
   yield takeLatest(
     [ADD_TASK, SET_TASK_START_TIME, DELETE_TASK, SET_TASK_NAME],
-    serializeState,
+    serializeState
   );
 }

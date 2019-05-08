@@ -47,19 +47,19 @@ function SimpleCard(props) {
 const styles = {
   card: {
     minWidth: 275,
-    maxWidth: 600,
+    maxWidth: 600
   },
   bullet: {
     display: 'inline-block',
     margin: '0 4px',
-    transform: 'scale(0.8)',
+    transform: 'scale(0.8)'
   },
   title: {
-    fontSize: 14,
+    fontSize: 14
   },
   pos: {
-    marginBottom: 12,
-  },
+    marginBottom: 12
+  }
 };
 
 export default withStyles(styles)(SimpleCard);

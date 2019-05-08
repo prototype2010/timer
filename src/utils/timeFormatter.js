@@ -3,7 +3,7 @@ import { TIME_OUTPUT_FORMAT } from '../config';
 
 export function getFormattedDifference(
   momentDateStart,
-  momentDateNow = moment(),
+  momentDateNow = moment()
 ) {
   const hours = moment(momentDateNow).diff(momentDateStart, 'hours');
   const minutes = moment(momentDateNow).diff(momentDateStart, 'minutes') % 60;

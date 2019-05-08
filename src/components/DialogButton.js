@@ -7,8 +7,8 @@ export default function(props) {
   const DialogButton = withStyles({
     root: {
       color: data.color,
-      fontWeight: 'bold',
-    },
+      fontWeight: 'bold'
+    }
   })(Button);
 
   return <DialogButton {...props} />;
