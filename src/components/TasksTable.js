@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CustomTable from './CustomTable'
+import GenericTable from './GenericTable'
 import DeleteTaskAlertDialog from './DeleteTaskAlertDialog'
 import {connect} from "react-redux";
 import {REDUX_ACTION_NAMES} from "../config";
@@ -44,8 +44,8 @@ class TasksTable extends Component {
                     confirmDeletion={confirmDeletion}
                 />
 
-                <CustomTable
-                    tasks={tasks}
+                <GenericTable
+                    items={tasks}
                     transferTaskIdToDelete={transferTaskIdToDelete}
                     showAlert={showAlert}
                 />

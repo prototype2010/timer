@@ -17,7 +17,7 @@ const {TASK} = ROUTER_PREFIXES;
 
 function CustomizedTable(props) {
 
-    const {classes, tasks, showAlert, transferTaskIdToDelete} = props;
+    const {classes, items, showAlert, transferTaskIdToDelete} = props;
     const {root, table} = classes;
 
     return (
@@ -35,7 +35,7 @@ function CustomizedTable(props) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {tasks.map((row, i) => {
+                    {items.map((row, i) => {
 
                         const {taskName, startTime, endTime, id} = row;
 
