@@ -14,7 +14,7 @@ const {TABLE} = ROUTER_PREFIXES;
 const styles = {
     card: {
         minWidth: 275,
-        maxWidth : 600,
+        maxWidth: 600,
     },
     bullet: {
         display: 'inline-block',
@@ -31,25 +31,26 @@ const styles = {
 
 function SimpleCard(props) {
     const {classes, requestedTask} = props;
+    const {card, title} = classes;
     const {endTime, id, startTime, taskName} = requestedTask;
 
     return (
-        <Card className={classes.card}>
+        <Card className={card}>
             <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                <Typography className={title} color="textSecondary" gutterBottom>
                     TASK # {`${id}`}
                 </Typography>
                 <Typography variant="h5" component="h2">
-                   Task name : {taskName}
+                    Task name : {taskName}
                 </Typography>
                 <Typography variant="h5" component="h2">
-                   Start time : {formatDate(startTime)}
+                    Start time : {formatDate(startTime)}
                 </Typography>
                 <Typography variant="h5" component="h2">
-                   End time : {formatDate(endTime)}
+                    End time : {formatDate(endTime)}
                 </Typography>
                 <Typography variant="h5" component="h2">
-                   Spent time : {getFormattedDifference(startTime, endTime)}
+                    Spent time : {getFormattedDifference(startTime, endTime)}
                 </Typography>
             </CardContent>
             <CardActions>

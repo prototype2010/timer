@@ -6,9 +6,11 @@ import {
 
 export default function (props) {
 
+    const {data} = props;
+
     const DialogButton = withStyles({
         root: {
-            color: props.data.color,
+            color: data.color,
             fontWeight: 'bold'
         },
     })(Button);

@@ -20,10 +20,10 @@ const DialogTitleContent = styled.p`
 
 export default function (props) {
 
-    const {hideAlert, confirmDeletion} = props;
+    const {hideAlert, confirmDeletion, open} = props;
 
     return (
-        <Dialog open={props.open}>
+        <Dialog open={open}>
             <DialogTitle>
                 <DialogTitleContent>
                     Delete task

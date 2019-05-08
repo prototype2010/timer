@@ -32,19 +32,23 @@ class TasksTable extends Component {
 
     render() {
 
+        const {state, props, hideAlert, confirmDeletion, transferTaskIdToDelete, showAlert} = this;
+        const {showDeleteTaskAlert} = state;
+        const {deleteTask, tasks} = props;
+
         return (
             <>
                 <DeleteTaskAlertDialog
-                    open={this.state.showDeleteTaskAlert}
-                    hideAlert={this.hideAlert}
-                    deleteTask={this.props.deleteTask}
-                    confirmDeletion={this.confirmDeletion}
+                    open={showDeleteTaskAlert}
+                    hideAlert={hideAlert}
+                    deleteTask={deleteTask}
+                    confirmDeletion={confirmDeletion}
                 />
 
                 <CustomTable
-                    tasks={this.props.tasks}
-                    transferTaskIdToDelete={this.transferTaskIdToDelete}
-                    showAlert={this.showAlert}
+                    tasks={tasks}
+                    transferTaskIdToDelete={transferTaskIdToDelete}
+                    showAlert={showAlert}
                 />
             </>
         );

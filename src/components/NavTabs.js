@@ -29,7 +29,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function NavTabs() {
-    const classes = useStyles();
+
+    const {root} = useStyles();
     const [value, setValue] = React.useState(window.location.hash.endsWith(CHART) ? 1 : 0);
 
     function handleChange(event, newValue) {
@@ -39,7 +40,7 @@ export default function NavTabs() {
     return (
         <Route>
             <NoSsr>
-                <div className={classes.root}>
+                <div className={root}>
                     <AppBar position="static">
                         <Tabs
                             style={{background: TABS_BACKGROUND}}

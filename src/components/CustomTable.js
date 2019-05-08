@@ -45,10 +45,11 @@ const styles = theme => ({
 function CustomizedTable(props) {
 
     const {classes, tasks, showAlert, transferTaskIdToDelete} = props;
+    const {root,table} = classes;
 
     return (
-        <Paper className={classes.root}>
-            <Table className={classes.table}>
+        <Paper className={root}>
+            <Table className={table}>
                 <TableHead>
                     <TableRow>
                         <CustomTableCell>№</CustomTableCell>
@@ -66,7 +67,7 @@ function CustomizedTable(props) {
                         const {taskName, startTime, endTime, id} = row;
 
                         return (
-                            <TableRow className={classes.row} key={row.id}>
+                            <TableRow className={classes.row} key={id}>
                                 <CustomTableCell component="th" scope="row">{i + 1}</CustomTableCell>
                                 <CustomTableCell align="right">{taskName}</CustomTableCell>
                                 <CustomTableCell align="right">{formatDate(startTime)}</CustomTableCell>

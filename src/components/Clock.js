@@ -58,10 +58,13 @@ export default class Clock extends PureComponent {
     };
 
     render() {
+
+        const {timeToDisplay} = this.state;
+
         return (
             <ClockRoundBlock>
                 <TimeOutputWrapper>
-                    {this.state.timeToDisplay}
+                    {timeToDisplay}
                 </TimeOutputWrapper>
             </ClockRoundBlock>
         );

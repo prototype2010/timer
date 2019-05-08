@@ -72,16 +72,17 @@ class Timer extends Component {
 
     render() {
 
-        const {props, state, handleTimerButtonClick} = this;
+        const {props, state, handleTimerButtonClick, handleInputChange, closeAlert} = this;
         const {startTime} = props;
+        const {localTaskName, showEmptyTaskAlert} = state;
 
         return (
             <TimerContainer>
 
                 <TaskNameInput
-                    onChange={this.handleInputChange}
+                    onChange={handleInputChange}
                     placeholder={'Name of your task'}
-                    value={this.state.localTaskName}
+                    value={localTaskName}
                     inputProps={{
                         style: {
                             textAlign: "center",
@@ -90,8 +91,8 @@ class Timer extends Component {
                 />
 
                 <EmptyTaskAlertDialog
-                    open={state.showEmptyTaskAlert}
-                    closeAlert={this.closeAlert}
+                    open={showEmptyTaskAlert}
+                    closeAlert={closeAlert}
                 />
 
                 <Clock

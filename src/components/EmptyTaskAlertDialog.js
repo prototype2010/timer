@@ -20,8 +20,10 @@ const DialogTitleContent = styled.p`
 
 export default function (props) {
 
+    const {open} = props;
+
     return (
-        <Dialog open={props.open}>
+        <Dialog open={open}>
             <DialogTitle>
                 <DialogTitleContent>
                     Empty task name

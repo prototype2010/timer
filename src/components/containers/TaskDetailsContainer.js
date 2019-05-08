@@ -5,8 +5,11 @@ import TaskDetails from '../TaskDetails';
 class TaskDetailsContainer extends Component {
 
     render() {
+
+        const {id, tasks} = this.props;
+
         return (
-            <TaskDetails id={this.props.id} tasks={this.props.tasks}/>
+            <TaskDetails id={id} tasks={tasks}/>
         );
     }
 }
