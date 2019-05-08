@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import GenericTable from './GenericTable'
-import DeleteTaskAlertDialog from './DeleteTaskAlertDialog'
 import {connect} from "react-redux";
-import {REDUX_ACTION_NAMES} from "../config";
-
-const {DELETE_TASK} = REDUX_ACTION_NAMES;
+import {bindActionCreators} from 'redux';
+import DeleteTaskAlertDialog from './DeleteTaskAlertDialog'
+import {deleteTask} from '../store/actions';
 
 class TasksTable extends Component {
 
@@ -58,10 +57,5 @@ export default connect(
     state => ({
         tasks: state.tasksList.tasks,
     }),
-    dispatch => ({
-        deleteTask: taskId => dispatch({
-            type: DELETE_TASK,
-            payload: taskId
-        }),
-    })
+    dispatch => bindActionCreators({deleteTask}, dispatch),
 )(TasksTable)

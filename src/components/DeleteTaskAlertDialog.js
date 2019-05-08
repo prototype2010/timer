@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {STYLES} from '../config'
+import {STYLES} from '../config';
 import {
     Dialog,
     DialogActions,

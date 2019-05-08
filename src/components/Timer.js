@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import styled from 'styled-components'
 import {
     Input,
     withStyles
 } from '@material-ui/core';
+
 import Clock from './Clock'
 import BasicButton from './BasicButton'
-import {REDUX_ACTION_NAMES, STYLES} from '../config'
+import {STYLES} from '../config'
 import EmptyTaskAlertDialog from './EmptyTaskAlertDialog';
+import {controlTasksFlow, handleTaskNameChange} from '../store/actions';
 
-const {CONTROL_TASKS_FLOW, TASK_NAME_CHANGE} = REDUX_ACTION_NAMES;
 const {TEXT_COLOR} = STYLES;
 
 class Timer extends Component {
@@ -97,15 +99,7 @@ export default connect(
         startTime: currentTask.startTime,
         taskName: currentTask.taskName,
     }),
-    dispatch => ({
-        controlTasksFlow: () => dispatch({
-            type: CONTROL_TASKS_FLOW
-        }),
-        handleTaskNameChange: value => dispatch({
-            type: TASK_NAME_CHANGE,
-            payload: value
-        })
-    })
+    dispatch => bindActionCreators({controlTasksFlow, handleTaskNameChange}, dispatch)
 )(Timer);
 
 const TimerContainer = styled.div`

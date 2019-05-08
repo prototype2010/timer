@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {STYLES} from '../config'
 import {
     Dialog,
     DialogActions,
@@ -8,6 +7,7 @@ import {
     DialogContentText,
     DialogTitle
 } from '@material-ui/core';
+import {STYLES} from '../config';
 import DialogButton from "./DialogButton";
 
 const {LIGHT_BLUE, WARN_COLOR} = STYLES;

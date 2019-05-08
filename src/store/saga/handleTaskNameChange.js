@@ -1,11 +1,12 @@
 import {takeLatest, delay, put} from 'redux-saga/effects';
 import {REDUX_ACTION_NAMES} from '../../config';
+import {setTaskName} from '../actions';
 
-const {TASK_NAME_CHANGE, SET_TASK_NAME} = REDUX_ACTION_NAMES;
+const {TASK_NAME_CHANGE} = REDUX_ACTION_NAMES;
 
 function* serializeState({payload}) {
     yield delay(700);
-    yield put({type: SET_TASK_NAME, payload})
+    yield put(setTaskName(payload))
 }
 
 export default function* () {

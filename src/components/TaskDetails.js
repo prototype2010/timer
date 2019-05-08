@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import styled from 'styled-components';
 import TaskCard from './TaskCard'
 import PageNotFound from './PageNotFound'
-import styled from 'styled-components';
 
 export default class TaskDetails extends Component {
 

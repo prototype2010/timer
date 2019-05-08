@@ -3,13 +3,12 @@ import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import {connect} from "react-redux";
+import {bindActionCreators} from 'redux';
 import styled from 'styled-components';
-import {REDUX_ACTION_NAMES, COLORS_PRESET} from '../config';
+import { COLORS_PRESET} from '../config';
 import BasicButton from './BasicButton'
-
-const {formChartBars, groupTasksForChart} = require('../utils/groupTasksForChart');
-const {GENERATE_TASKS} = REDUX_ACTION_NAMES;
-
+import  {formChartBars, groupTasksForChart} from '../utils/groupTasksForChart';
+import {generateTasks} from '../store/actions';
 
 class Chart extends PureComponent {
 
@@ -71,11 +70,7 @@ export default connect(
     state => ({
         tasks: state.tasksList.tasks,
     }),
-    dispatch => ({
-        generateTasks: () => dispatch({
-            type: GENERATE_TASKS
-        })
-    })
+    dispatch => bindActionCreators({generateTasks}, dispatch)
 )(Chart)
 
 
