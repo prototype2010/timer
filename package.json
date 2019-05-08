@@ -24,6 +24,12 @@
     "redux-saga": "^1.0.2",
     "styled-components": "^4.2.0"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -48,6 +54,12 @@
     ]
   },
   "devDependencies": {
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "prettier": "1.17.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
